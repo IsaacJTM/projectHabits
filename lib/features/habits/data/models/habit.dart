@@ -1,11 +1,52 @@
-import 'package:apphabitsv01/core/widgets/habit_card.dart';
-import 'package:apphabitsv01/features/habits/data/models/habit.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
-
-  final List<Habit> mockHabits = [
+class Habit {
+  final String id;
+  final String name;
+  final IconData icon;
+  final Color color;
+  final String goalDescription; // ej: "Meta diaria: 2.5 litros"
+  final int currentStreak;
+  final int longestStreak;
+  final List<String> activeDays; // ['L','M','M','J','V','S','D']
+  final TimeOfDay? reminderTime;
+  final bool reminderEnabled;
+  final bool completedToday;
+ 
+  const Habit({
+    required this.id,
+    required this.name,
+    required this.icon,
+    required this.color,
+    required this.goalDescription,
+    required this.currentStreak,
+    required this.longestStreak,
+    required this.activeDays,
+    this.reminderTime,
+    this.reminderEnabled = true,
+    this.completedToday = false,
+  });
+ 
+  Habit copyWith({bool? completedToday, int? currentStreak}) {
+    return Habit(
+      id: id,
+      name: name,
+      icon: icon,
+      color: color,
+      goalDescription: goalDescription,
+      currentStreak: currentStreak ?? this.currentStreak,
+      longestStreak: longestStreak,
+      activeDays: activeDays,
+      reminderTime: reminderTime,
+      reminderEnabled: reminderEnabled,
+      completedToday: completedToday ?? this.completedToday,
+    );
+  }
+}
+ 
+/// Mock de datos para construir la UI mientras no existe el backend.
+/// Reemplazar por una llamada real (dio + retrofit) en habits_repository.dart
+final List<Habit> mockHabits = [
   Habit(
     id: '1',
     name: 'Beber Agua',
@@ -62,17 +103,3 @@ class HomePage extends StatelessWidget {
     completedToday: false,
   ),
 ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView.builder(
-        itemCount: mockHabits.length,
-        itemBuilder: (BuildContext context,int index){
-          print(index);
-          return HabitCard(habit: mockHabits[index]);
-        }
-      ),
-    );
-  }
-}

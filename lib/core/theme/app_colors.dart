@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
+
 class AppColors{
 
     // Colores primarios (Cuentas principales, rachas , elementos interactivos)
-    static const Color primary = Color(0xFF20C9C2);
+    static const Color primary = Color(0xFF005047);
     static const Color primaryDark = Color(0xFF15A39D);
     static const Color primaryLight = Color(0xFFD7F5F3);
 
