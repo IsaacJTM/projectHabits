@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "17899763204",
+    "project_id": "firsproject-a78eb",
+    "storage_bucket": "firsproject-a78eb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17899763204:android:85b39e2bdd9ab79adb2751",
+        "android_client_info": {
+          "package_name": "com.example.apphabitsv01"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE0xeklDjwWxP7pwuxzEdUmEuTJndBhmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17899763204:android:961259317fc85592db2751",
+        "android_client_info": {
+          "package_name": "com.groudg15.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE0xeklDjwWxP7pwuxzEdUmEuTJndBhmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17899763204:android:9a0250952a85487bdb2751",
+        "android_client_info": {
+          "package_name": "com.groupg15.todotask"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE0xeklDjwWxP7pwuxzEdUmEuTJndBhmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,9 +1,9 @@
-import 'package:apphabitsv01/Pages/home_page.dart';
 import 'package:apphabitsv01/core/widgets/main_shell.dart';
 import 'package:apphabitsv01/features/habits/data/models/habit.dart';
 import 'package:apphabitsv01/features/habits/presentation/screens/create_habit_screen.dart';
 import 'package:apphabitsv01/features/habits/presentation/screens/habit_detail_screen.dart';
-import 'package:apphabitsv01/features/habits/presentation/screens/profile_screen.dart';
+import 'package:apphabitsv01/features/habits/presentation/screens/home_screen.dart';
+import 'package:apphabitsv01/features/profile/presentation/screens/profile_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -14,7 +14,7 @@ final GoRouter appRouter = GoRouter(
       routes: [
         GoRoute(
           path: '/home',
-          builder: (context, state) => HomePage(),
+          builder: (context, state) => HomeScreen(),
           ),
         GoRoute(
           path: '/profile',

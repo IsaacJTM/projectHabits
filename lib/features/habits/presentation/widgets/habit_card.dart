@@ -5,20 +5,26 @@ import 'package:flutter/material.dart';
 class HabitCard extends StatelessWidget {
   final Habit habit;
   final VoidCallback? onToggle;
-  const HabitCard({super.key, required this.habit, this.onToggle});
+  final VoidCallback? onTap;
+  
+  const HabitCard({
+    super.key, 
+    required this.habit, 
+    this.onToggle, 
+    this.onTap
+  });
 
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
      elevation: 1,
      color: Colors.white,
-     shadowColor: AppColors.accentYellow,
      child: Padding(
-       padding: const EdgeInsets.symmetric(vertical: 14),
+       padding: const EdgeInsets.symmetric(vertical: 8),
        child: ListTile(
         leading: Container(
-          width: 50,
-          height: 50,
+          width: 40,
+          height: 40,
           decoration: BoxDecoration(
             color: habit.color.withValues(alpha: 0.15),
             shape: BoxShape.circle
@@ -37,18 +43,21 @@ class HabitCard extends StatelessWidget {
           transitionBuilder: (child, anim) => ScaleTransition(scale: anim, child: child),
           child: GestureDetector(
             key: ValueKey(habit.completedToday),
-            onTap: onToggle,
+            onTap: onTap,
             child: Container(
-              width: 44,
-              height: 44,
+              width: 35,
+              height: 35,
               decoration: BoxDecoration(
                 color: habit.completedToday ? AppColors.primary : Colors.transparent,
                 borderRadius: BorderRadius.circular(5),
                 border: Border.all(
                   color: habit.completedToday ? AppColors.primary : AppColors.border,
                   width: 2,
-                )
+                ),
               ),
+              child: habit.completedToday 
+                ? const Icon(Icons.check_rounded, size: 18, color: Colors.white)
+                : null
             ),
           ),
         ),
