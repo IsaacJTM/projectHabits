@@ -107,6 +107,82 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   'Construye tus hábitos, un día a la vez',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 24),
+                if(_isRegisterMode)...[
+                  TextFormField(
+                    controller: _nameController,
+                    decoration: const InputDecoration(
+                      labelText: 'Nombre',
+                      filled: false,
+                      fillColor: AppColors.surface,
+                      border: OutlineInputBorder()
+                    ),
+                    validator: (v) => (v == null || v.trim().isEmpty) ? 'Ingrese tu nombre': null,
+                  )
+                ],
+                SizedBox(height: 16),
+                TextFormField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                    labelText: 'Correo electrónico',
+                    filled: true,
+                    fillColor: AppColors.surface,
+                    border: OutlineInputBorder()
+                  ),
+                  validator: (v) => (v == null || !v.contains('@')) ? 'Correo invalido': null,
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  controller: _passwordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    labelText: 'Contraseña',
+                    filled: true,
+                    fillColor: AppColors.surface,
+                    border: OutlineInputBorder()
+                  ),
+                  validator: (v) => (v == null || v.length < 6) ? 'Mínimo 6 caracteres': null,
+                ),
+                if(_errorMessage != null)...[
+                  const SizedBox(height: 16),
+                  Text(
+                    _errorMessage!,
+                    style: TextStyle(color: AppColors.secondary),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: _isLoading ? null: _submit, 
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primaryDark,
+                        foregroundColor: AppColors.surface,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusGeometry.circular(8)
+                        )
+                    ),
+                    child: _isLoading 
+                      ? const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child:  CircularProgressIndicator(
+                            color: Colors.white, strokeWidth: 2,
+                          ),
+                        )
+                      : Text(_isRegisterMode ? 'Registrate' : 'Iniciar Sesión'),    
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextButton(
+                  onPressed: () => setState(() => _isRegisterMode = !_isRegisterMode), 
+                  child: Text(_isRegisterMode 
+                  ? '¿Ya tienes cuenta? Inicia Sesión'
+                  : '¿No tienes cuenta? Regístrate')
                 )
               ],
             )

@@ -4,5 +4,5 @@ import 'package:apphabitsv01/features/habits/presentation/screens/home_screen.da
 import 'package:flutter/material.dart';
 
 void main(){
-  runApp(MaterialApp(home: LoginScreen(),debugShowCheckedModeBanner: false,));
+  runApp(MaterialApp(home: HomeScreen(),debugShowCheckedModeBanner: false,));
 }
