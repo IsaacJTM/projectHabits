@@ -1,12 +1,8 @@
-import 'dart:nativewrappers/_internal/vm/lib/internal_patch.dart';
-
 import 'package:apphabitsv01/features/auth/data/auth_repository.dart';
 import 'package:apphabitsv01/features/habits/data/habits_repository.dart';
 import 'package:apphabitsv01/features/habits/data/models/habit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/date_symbols.dart';
-import 'package:intl/intl.dart';
 
 final habitsRepositoryProvider = Provider<HabitsRepository>((ref) => HabitsRepository());
 

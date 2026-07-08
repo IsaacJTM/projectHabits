@@ -52,6 +52,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         );
       }
     }on Exception catch(e){
+      print('ERROR REAL DE FIREBASE: $e');
       setState(() => _errorMessage = _friendlyError(e));
     }finally{
       if(mounted) setState(() => _isLoading = false);
