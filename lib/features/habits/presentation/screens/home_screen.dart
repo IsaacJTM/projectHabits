@@ -41,6 +41,7 @@ class HomeScreen extends ConsumerWidget {
     final habitAsync = ref.watch(habitsProvider);
     final profileAsync = ref.watch(userProfileProvider);
 
+
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -75,6 +76,7 @@ class HomeScreen extends ConsumerWidget {
 
 
           if(habits.isEmpty){
+            
             return EmptyPages(onCreate: () =>context.push('/create-habit'));
           }
 
@@ -102,7 +104,7 @@ class HomeScreen extends ConsumerWidget {
                       Icons.local_fire_department,
                       AppColors.secondary,
                       'RACHA',
-                      '12',
+                      '${habits.isEmpty ? 0 : habits[0].currentStreak}',
                       'días'
                     ),
                   ),
@@ -132,9 +134,9 @@ class HomeScreen extends ConsumerWidget {
                           Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                              Text('Progreso Diario', style: Theme.of(context).textTheme.titleMedium),
+                              Text('Progreso Diario', style: TextStyle(fontSize: 18, color: AppColors.primaryDark, fontWeight: FontWeight.bold)),
                               SizedBox(height: 4),
-                              Text('$completed de ${habits.length} hábitos completados', style: TextStyle(fontSize: 16, color: AppColors.primaryDark))
+                              Text('$completed de ${habits.length} hábitos completados', style: Theme.of(context).textTheme.titleMedium)
                           ],
                           ),
                           Text('${(progress*100).round()}%', 
@@ -165,13 +167,13 @@ class HomeScreen extends ConsumerWidget {
                   onToggle: () => _handleToggle(context, ref, habit),
                 ),
               ),
-              FloatingActionButton(
-                onPressed: () => context.push('/create-habit'),
-                child: const Icon(Icons.add_rounded),
-              )
             ],
           );
         }
+      ),
+      floatingActionButton: FloatingActionButton(
+                onPressed: () => context.push('/create-habit'),
+                child: const Icon(Icons.add_rounded),
       ),
     );
   }

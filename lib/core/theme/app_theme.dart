@@ -10,7 +10,7 @@ class AppTheme {
     final textTheme = GoogleFonts.interTextTheme(base.textTheme).copyWith(
       headlineSmall: GoogleFonts.inter(
         fontSize: 22,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w400,
         color: AppColors.textPrimary,
       ),
       titleLarge: GoogleFonts.inter(
@@ -23,8 +23,8 @@ class AppTheme {
         fontWeight: FontWeight.w600,
         color: AppColors.textPrimary,
       ),
-      bodyLarge: GoogleFonts.inter(fontSize: 15, color: AppColors.textPrimary),
-      bodyMedium: GoogleFonts.inter(fontSize: 13, color: AppColors.textSecondary),
+      bodyLarge: GoogleFonts.inter(fontSize: 17, color: AppColors.textPrimary),
+      bodyMedium: GoogleFonts.inter(fontSize: 15, color: AppColors.textSecondary),
       labelSmall: GoogleFonts.inter(fontSize: 11, color: AppColors.textSecondary),
     );
  

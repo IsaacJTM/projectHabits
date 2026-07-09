@@ -27,7 +27,7 @@ class HabitCard extends StatelessWidget {
           height: 40,
           decoration: BoxDecoration(
             color: habit.color.withValues(alpha: 0.15),
-            shape: BoxShape.circle
+            borderRadius: BorderRadius.circular(4)
           ),
           child: Icon(habit.icon, color: habit.color, size: 22,),
         ),
