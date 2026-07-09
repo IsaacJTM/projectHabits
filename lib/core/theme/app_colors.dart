@@ -27,6 +27,10 @@ class AppColors{
     static const Color surfaceDark = Color(0xFF1C1F23);
     static const Color textPrimaryDark = Color(0xFFF3F4F6);
     static const Color textSecondaryDark = Color(0xFF9CA3AF);
+ //0xFFF1F1F1 0xFFF5F5F5
+    static const Color primaryContainer = Color(0xFFF5F5F5);
+    static const Color secondaryContainer = Color(0xFFF1F1F1);
+    
 
     // Heatmap (intensidad de cumplimiento)
     static const List<Color> heatmapSale = [

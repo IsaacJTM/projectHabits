@@ -57,9 +57,9 @@ class AppTheme {
           backgroundColor: AppColors.primaryDark,
           foregroundColor: Colors.white,
           elevation: 0,
-          padding: const EdgeInsets.symmetric(vertical: 16),
+          padding: const EdgeInsets.all(16),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(8),
           ),
           textStyle: GoogleFonts.inter(fontWeight: FontWeight.w600, fontSize: 15),
         ),
@@ -80,7 +80,7 @@ class AppTheme {
         thumbColor: WidgetStateProperty.all(Colors.white),
         trackColor: WidgetStateProperty.resolveWith(
           (states) => states.contains(WidgetState.selected)
-              ? AppColors.primary
+              ? AppColors.primaryDark
               : AppColors.border,
         ),
       ),

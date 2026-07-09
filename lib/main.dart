@@ -1,8 +1,5 @@
 import 'package:apphabitsv01/core/router/app_router.dart';
 import 'package:apphabitsv01/core/theme/app_theme.dart';
-import 'package:apphabitsv01/features/auth/presentation/screens/login_screen.dart';
-import 'package:apphabitsv01/features/habits/presentation/screens/home_screen.dart';
-import 'package:apphabitsv01/features/habits/presentation/widgets/habit_card.dart';
 import 'package:apphabitsv01/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +27,7 @@ class HabitsApp extends ConsumerWidget {
         title: 'App Hábitos',
         debugShowCheckedModeBanner: false,
         routerConfig: router,
+        theme: AppTheme.light,
     );
   }
 }

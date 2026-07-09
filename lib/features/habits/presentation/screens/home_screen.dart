@@ -165,15 +165,13 @@ class HomeScreen extends ConsumerWidget {
                   onToggle: () => _handleToggle(context, ref, habit),
                 ),
               ),
+              FloatingActionButton(
+                onPressed: () => context.push('/create-habit'),
+                child: const Icon(Icons.add_rounded),
+              )
             ],
           );
         }
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.primaryDark,
-        foregroundColor: AppColors.surface,
-        onPressed: () => context.push('/create-habit'),
-        child: const Icon(Icons.add_rounded),
       ),
     );
   }
