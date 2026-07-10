@@ -22,14 +22,18 @@ class HabitCard extends StatelessWidget {
      child: Padding(
        padding: const EdgeInsets.symmetric(vertical: 8),
        child: ListTile(
-        leading: Container(
-          width: 40,
-          height: 40,
-          decoration: BoxDecoration(
-            color: habit.color.withValues(alpha: 0.15),
-            borderRadius: BorderRadius.circular(4)
+
+        leading: GestureDetector(
+          onTap: onTap,
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: habit.color.withValues(alpha: 0.15),
+              borderRadius: BorderRadius.circular(4)
+            ),
+            child: Icon(habit.icon, color: habit.color, size: 22,),
           ),
-          child: Icon(habit.icon, color: habit.color, size: 22,),
         ),
         title: Text(habit.name),
         subtitle: Row(children: [
@@ -41,9 +45,9 @@ class HabitCard extends StatelessWidget {
         trailing: AnimatedSwitcher(
           duration: Duration(milliseconds: 250),
           transitionBuilder: (child, anim) => ScaleTransition(scale: anim, child: child),
-          child: GestureDetector(
+          child: InkWell(
             key: ValueKey(habit.completedToday),
-            onTap: onTap,
+            onTap: onToggle,
             child: Container(
               width: 35,
               height: 35,

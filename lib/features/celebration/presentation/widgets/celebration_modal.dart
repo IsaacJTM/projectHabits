@@ -84,9 +84,75 @@ class _CelebrationModalState extends State<_CelebrationModal> {
               AppColors.accentYellow
             ],
           ),
+        ),
+        Dialog(
+          backgroundColor: Colors.transparent,
+          insetPadding: const EdgeInsets.symmetric(horizontal: 32),
+          child: Container(
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              color: AppColors.surface,
+              borderRadius: BorderRadius.circular(24),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 64,
+                  height: 64,
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryDark,
+                    shape: BoxShape.circle
+                  ),
+                  child: Icon(Icons.local_activity, color: AppColors.surface, size: 32,),
+                ),
+                const SizedBox(height: 16),
+                Text(widget.title, style: Theme.of(context).textTheme.headlineSmall),
+                const SizedBox(height: 16),
+                Text(
+                  widget.message,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ), 
+                const SizedBox(height: 16),
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        _textoValor('RACHA', '${widget.streakDays}', context),
+                        const SizedBox(width: 6),
+                        Text("|"),
+                        const SizedBox(width: 6),
+                        _textoValor('PUNTOS', '+ ${widget.xpEarned}', context)
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () => Navigator.of(context).pop(), 
+                    child: const Text('Continuar'),
+                  ),
+                )
+              ],
+            ),
+          ),
         )
       ],
 
     );
   }
+}
+
+Widget _textoValor(String label, String value, BuildContext context){
+  return Column(
+    children: [
+      Text(value, style: Theme.of(context).textTheme.titleMedium),
+      Text(label, style: Theme.of(context).textTheme.titleMedium),
+    ],
+  );
 }
